@@ -1,5 +1,13 @@
 version: "3"
 services:
+  app:
+    image: efcore-sample-app
+    build: .
+    volumes:
+      - .:/work
+    working_dir: /work
+    links:
+      - db:db.local
   db:
     image: microsoft/mssql-server-linux:2017-latest
     environment:
